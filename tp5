@@ -1,0 +1,206 @@
+INDEX.HTML:
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP5 - Modelo de Caja, Posicionamiento, Display y Google Fonts</title>
+
+    <!-- integración de google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Trabajo Práctico CSS</h1>
+
+    <section id="ej1">
+        <h2>Ejercicio 1: Modelo de Caja</h2>
+        <div class="box content-box">content-box</div>
+        <div class="box border-box">border-box</div>
+        <p class="comentario">
+            El modelo <strong>content-box</strong> calcula el ancho y alto sin incluir el padding ni el borde, 
+            por lo que el tamaño visible total es mayor.  
+            En cambio, con <strong>border-box</strong>, el padding y el borde se incluyen dentro del ancho y alto asignados.
+        </p>
+    </section>
+
+    <section id="ej2">
+        <h2>Ejercicio 2: Posicionamiento</h2>
+        <div class="caja static">static</div>
+        <div class="caja relative">relative</div>
+        <div class="caja absolute">absolute</div>
+        <div class="caja fixed">fixed</div>
+        <p class="comentario">
+            - static: posición por defecto, sigue el flujo normal del documento.  
+            - relative: se desplaza respecto a su posición original.  
+            - absolute: se posiciona respecto al contenedor más cercano con posición distinta de static.  
+            - fixed: permanece fijo en la ventana, aunque se haga scroll.
+        </p>
+    </section>
+
+    <section id="ej3">
+        <h2>Ejercicio 3: Propiedad Display</h2>
+        <p class="inline">Elemento inline</p>
+        <p class="block">Elemento block</p>
+        <p class="inline-block">Elemento inline-block</p>
+        <button id="ocultar">Pasa el mouse aquí</button>
+        <p class="oculto">Este texto se oculta al pasar el mouse por el botón</p>
+        <p class="comentario">
+            - inline: se muestra en la misma línea, sin respetar alto ni ancho.  
+            - block: ocupa todo el ancho disponible y genera salto de línea.  
+            - inline-block: se comporta como inline, pero permite definir alto y ancho.  
+            - none: oculta completamente el elemento del flujo del documento.
+        </p>
+    </section>
+
+    <section id="ej4">
+        <h2>Ejercicio 4: Google Fonts</h2>
+        <p class="google-font">
+            Este texto utiliza la fuente "Poppins" importada desde Google Fonts.
+        </p>
+        <p>
+            Antes de aplicar la fuente, el texto usaba la fuente por defecto del navegador.
+        </p>
+    </section>
+
+
+
+
+</body>
+</html>
+
+
+
+style.css
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+h1, h2 {
+    color: #2b5797;
+}
+
+section {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid #2b5797;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+}
+
+.content-box {
+    box-sizing: content-box;
+    background-color: lightcoral;
+}
+
+.border-box {
+    box-sizing: border-box;
+    background-color: lightgreen;
+}
+
+#ej2 {
+    position: relative;
+    height: 250px;
+}
+
+.caja {
+    width: 120px;
+    height: 80px;
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    margin: 10px;
+}
+
+.static {
+    background-color: gray;
+    position: static;
+}
+
+.relative {
+    background-color: steelblue;
+    position: relative;
+    top: 20px;
+    left: 30px;
+}
+
+.absolute {
+    background-color: darkorange;
+    position: absolute;
+    top: 50px;
+    right: 30px;
+}
+
+.fixed {
+    background-color: darkred;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.inline {
+    display: inline;
+    background-color: lightblue;
+    padding: 5px;
+}
+
+.block {
+    display: block;
+    background-color: lightgray;
+    padding: 5px;
+}
+
+.inline-block {
+    display: inline-block;
+    background-color: lightyellow;
+    padding: 5px;
+    width: 150px;
+}
+
+#ocultar {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.oculto {
+    display: block;
+    background-color: pink;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+#ocultar:hover + .oculto {
+    display: none; /* oculta el párrafo al pasar el mouse por el botón */
+}
+
+.google-font {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+
+.comentario {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-left: 4px solid #2b5797;
+}
